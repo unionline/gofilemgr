@@ -1,0 +1,125 @@
+<html xml:lang="en" lang="en" dir="ltr"
+      class="device-nonmobile tone-light top-bar-white unsafe-blur-off js js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths chrome chrome76 windows desktop"
+      prefix="og: http://ogp.me/ns#">
+<meta charset="utf-8">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="description" content="ocr">
+<link rel="shortcut icon" href="/favicon.ico">
+<title>文件管理</title>
+
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="./static/3part/layui/css/layui.css">
+<link rel="stylesheet" type="text/css" href="./static/css/index.css">
+<script src="./static/3part/layui/layui.js"></script>
+<script src="./static/js/index.js"></script>
+<script src="./static/js/ipinfo.js"></script>
+<script src="./static/js/upload.js"></script>
+
+</head>
+
+<body ondragstart="return false">
+
+<div id="content" sytle="height:100%">
+    <div class="layui-col-xs6 layui-col-sm6 layui-col-md6">
+        <fieldset class="layui-elem-field layui-field-title">
+            <legend>文件上传</legend>
+        </fieldset>
+
+        <div class="layui-form-item">
+            <div  class="layui-col-xs9 layui-col-sm9 layui-col-md9">
+                <label class="layui-form-label">储存路径</label>
+                <div class="layui-input-block">
+                    <input type="text" id="path" name="title" required="" lay-verify="required" placeholder="请输入保存路径"
+                           autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-col-xs3 layui-col-sm3 layui-col-md3">
+                <button id="checkValid" type="button" class="layui-btn layui-btn-normal">核对</button>
+                <button id="clearPath" type="button" class="layui-btn layui-btn-warm">清空</button>
+            </div>
+        </div>
+
+
+        <div class="layui-tab-item layui-show">
+            <div class="layui-upload">
+                <div class="layui-upload-drag" id="testList">
+                    <i id="upload_icon" class="layui-icon"></i>
+                    <div id="img_box"><img class="layui-upload-img" id="preview"></div>
+                    <p id="message" class="drag_message">点击上传，或将文件拖拽到此处</p>
+                </div>
+                <!--<button type="button" class="layui-btn layui-btn-normal" id="testList">选择多文件</button><input class="layui-upload-file" type="file" accept="" name="file" multiple="">-->
+                <button type="button" class="layui-btn" id="testListAction">开始上传</button>
+                <div class="layui-inline">
+                    <select id="create_dir" name="create_dir" class="layui-form-select" lay-verify="">
+                        <option value="false">不创建目录（默认）</option>
+                        <option value="true">自动创建目录</option>
+                    </select>
+                </div>
+                <div class="layui-progress" lay-filter="demo" lay-showPercent="true">
+                    <div class="layui-progress-bar" lay-percent=""></div>
+                </div>
+                <div class="layui-upload-list" style="height: 380px;overflow-y:scroll;">
+                    <table class="layui-table">
+                        <thead>
+                        <tr>
+                            <th>文件名</th>
+                            <th>大小</th>
+                            <th>状态</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody id="demoList"></tbody>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--  </div> -->
+    </div>
+</div>
+
+<div class="layui-col-xs6 layui-col-sm6 layui-col-md6">
+    <div class="layui-inline">
+        <button id="listFile" type="button" class="layui-btn layui-btn-success">列出文件</button>
+        <div class="layui-inline">
+            <select id="depth" name="depth" class="layui-form-select" lay-verify="">
+                <option value="1">文件夹深度1（默认）</option>
+                <option value="2">文件夹深度2</option>
+                <option value="3">文件夹深度3</option>
+            </select>
+        </div>
+    </div>
+    <div id="file_list" style="height: 440px;overflow-y:scroll;">
+        <table class="layui-table">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>文件名</th>
+                <th>文件路径</th>
+                <th>文件格式</th>
+                <th>文件权限</th>
+                <th>文件大小</th>
+                <th>创建时间</th>
+            </tr>
+            </thead>
+            <tbody id="fileList"></tbody>
+
+        </table>
+
+
+    </div>
+</div>
+</div>
+<div class="layui-footer">
+    <!-- 底部固定区域 -->
+    <p style="text-align: center">CopyRight © 2020 联合在线 unionline.top All Rights Reserved.</p>
+</div>
+
+</body>
+</html>

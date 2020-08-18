@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../static/3part/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/index.css">
+    <script src="../static/3part/layui/layui.js"></script>
+    <script src="../static/js/app.js"></script>
+    <script src="../static/js/file_list_depth.js"></script>
+</head>
+<body>
+<div>
+    <div class="layui-inline">
+        <button id="listFile" type="button" class="layui-btn layui-btn-success">列出文件</button>
+        <div class="layui-inline">
+            <select id="depth" name="depth" class="layui-form-select" lay-verify="">
+                <option value="1">文件夹深度1（默认）</option>
+                <option value="2">文件夹深度2</option>
+                <option value="3">文件夹深度3</option>
+            </select>
+        </div>
+    </div>
+    <div id="file_list_v1" style="height: 100%";>
+        <table class="layui-table">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>文件名</th>
+                <th>文件路径</th>
+                <th>文件格式</th>
+                <th>文件权限</th>
+                <th>文件大小</th>
+                <th>创建时间</th>
+            </tr>
+            </thead>
+            <tbody id="fileList"></tbody>
+
+        </table>
+
+
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文件列表</title>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../static/3part/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/index.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/file_list.css">
+    <script src="../static/3part/layui/layui.js"></script>
+    <script src="../static/js/app.js"></script>
+    <script src="../static/js/file_list.js"></script>
+</head>
+<br ondragstart="return false">
+
+<div class="layui-form-item">
+    <div>
+        当前路径：
+        <div class="layui-inline">
+            <input id="file_list_path" placeholder="请输入保存路径" class="layui-input" autocomplete="on" size="100">
+        </div>
+        <div>
+        当前路径：
+        <span class="layui-breadcrumb" lay-separator="" onclick="get_path()">
+          <a href="">C:</a>
+          <a href="">Users</a>
+          <a href="">Administrator</a>
+          <a href="">Desktop</a>
+          <a href="">Temp</a>
+        </span>
+        </div>
+    </div>
+</div>
+
+<script type="text/html" id="toolbarDemo">
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm" lay-event="bunchSave">保存选中行数据</button>
+        <button class="layui-btn layui-btn-danger layui-btn-sm" lay-event="bunchDelete">删除选中行数据</button>
+        <input id="count" style="visibility: hidden">
+    </div>
+</script>
+
+
+<div class="demoTable">
+    文件名：
+    <div class="layui-inline">
+        <input class="layui-input" name="file-name-box" id="file_name" autocomplete="on">
+    </div>
+    文件格式：
+    <div class="layui-inline">
+        <input class="layui-input" name="file-format-box" id="file_format" autocomplete="on">
+    </div>
+    <button class="layui-btn" data-type="reload" onclick="search()">搜索</button>
+    <button class="layui-btn" onclick="reload()">重置搜索条件</button>
+</div>
+
+<table id="file_list" lay-filter="file_list_table"></table>
+
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-xs layui-btn-normal" lay-event="update">更新</a>
+    <a class="layui-btn layui-btn-xs layui-btn-warm" lay-event="download">下载</a>
+    <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="delete">删除</a>
+</script>
+
+
+<script type="text/html" id="images">
+    <div><img src="{{d.image}}"></div>
+</script>
+</body>
+</html>
